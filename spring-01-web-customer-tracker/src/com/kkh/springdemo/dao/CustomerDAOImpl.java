@@ -17,8 +17,8 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    // @Transactional // service에 권한을 위임 하였고, service에서 해당 annoataion을 선언 하기 때문에 필요가 없음
     @Override
-    @Transactional
     public List<Customer> getCustomers() {
 
         // get the current hibernate session
