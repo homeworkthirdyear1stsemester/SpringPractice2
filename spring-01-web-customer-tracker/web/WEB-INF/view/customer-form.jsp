@@ -7,10 +7,10 @@
     <title>Save Customer</title>
     <link type="text/css"
           rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/sytle.css">
+          href="${pageContext.request.contextPath}/resources/css/style.css"/>
     <link type="text/css"
           rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
+          href="${pageContext.request.contextPath}/resources/css/add-customer-style.css"/>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
     </div>
 </div>
 <div id="container">
-    <h3>Save Customer></h3>
+    <h3>Save Customer</h3>
     <form:form action="saveCustomer" modelAttribute="customer" method="POST">
         <table>
             <tbody>
