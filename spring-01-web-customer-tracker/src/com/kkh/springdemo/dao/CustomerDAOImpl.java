@@ -21,7 +21,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     public List<Customer> getCustomers() {
 
         // get the current hibernate session
-        Session currentSession = sessionFactory.getCurrentSession();
+        Session currentSession = this.sessionFactory.getCurrentSession();
 
         // create a query ... sort by last name
         Query<Customer> theQuery = currentSession.createQuery("from Customer order by lastName",
@@ -41,5 +41,17 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         // save the customer ... finally
         currentSession.save(customer);
+    }
+
+    @Override
+    public Customer getCustomer(int theId) {
+
+        // get the current hibernate session
+        Session currentSession = this.sessionFactory.getCurrentSession();
+
+        // now retrieve/read from database using the primary key
+        Customer customer = currentSession.get(Customer.class, theId);
+
+        return customer;
     }
 }
