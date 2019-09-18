@@ -50,6 +50,15 @@ public class CustomerController {
         return "customer-form";
     }
 
+    @GetMapping("/delete")
+    public String deleteCustomer(@RequestParam("customerId") int theId) {
+
+        // delete the customer
+        this.customerService.deleteCustomer(theId);
+
+        return "redirect:/customer/list";
+    }
+
     @PostMapping("/saveCustomer")
     public String saveCustomer(@ModelAttribute("customer") Customer customer) {
 
