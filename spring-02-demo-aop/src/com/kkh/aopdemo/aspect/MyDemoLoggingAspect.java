@@ -17,7 +17,10 @@ public class MyDemoLoggingAspect {
     // @Before("execution(public void add*())")
 
     // 모든 return type들 중 add로 시갖하는 함수에 앞에 붙는 코드들이다
-    @Before("execution(* add*(..))")
+    // @Before("execution(* add*(..))")
+
+    // any method in any class in aopdemo dao package
+    @Before("execution(* com.kkh.aopdemo.dao.*.*(..))")
     public void beforeAddAccountAdvice() {
         System.out.println("\n============>>> Executing @Before advice on method");
     }
