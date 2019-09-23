@@ -15,6 +15,6 @@
     <h2>kkh Company Home Page</h2>
     <hr>
 
-
+    Welcom to the kkh company home page!
 </body>
 </html>
