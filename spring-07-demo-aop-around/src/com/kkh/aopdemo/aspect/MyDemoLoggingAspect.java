@@ -29,7 +29,16 @@ public class MyDemoLoggingAspect {
         long begin = System.currentTimeMillis();
 
         // now, let's execute the method
-        Object result = proceedingJoinPoint.proceed();
+        Object result = null;
+        try {
+            result = proceedingJoinPoint.proceed();
+        } catch (RuntimeException exc) {
+            // log the exception
+            this.logger.warning(exc.getMessage());
+
+            // rethrow exception
+            throw exc;
+        }
 
         // get end timestamp
         long end = System.currentTimeMillis();
