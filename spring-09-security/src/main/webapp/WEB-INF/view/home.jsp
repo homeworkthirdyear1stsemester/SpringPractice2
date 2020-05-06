@@ -11,7 +11,8 @@
     Welcome to the kkh company home page!
 </p>
 
-<form:form action="${pageContext.request.contextPath}/authenticatedTheUser"
+<!-- Add a logout button -->
+<form:form action="${pageContext.request.contextPath}/logout"
            method="POST">
     <input type="submit" value="Logout"/>
 </form:form>

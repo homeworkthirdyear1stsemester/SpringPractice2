@@ -18,22 +18,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <build>
-        <finalName>spring-09-security</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <!-- Add Maven coordinate (GAV) for : maven-war-plugin-->
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>3.2.0</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-
     <dependencies>
-
         <!-- Spring MVC support -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -42,7 +27,7 @@
         </dependency>
 
         <!-- Spring Security -->
-        <!-- Spring-Security-web and spring-security-config -->
+        <!-- spring-security-web and spring-security-config -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
@@ -52,13 +37,6 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>${springsecurity.version}</version>
-        </dependency>
-
-        <!-- add Spring Security Taglibs support-->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-taglibs</artifactId>
             <version>${springsecurity.version}</version>
         </dependency>
 
@@ -81,39 +59,27 @@
             <version>1.2</version>
         </dependency>
 
-        <!-- to compensate for java 9+ not including jaxb -->
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-
-
-        <!--Add MySQL and C3P0 s-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.45</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.mchange</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>0.9.5.2</version>
-        </dependency>
-
-        <!--Add Spring security Taglibs support-->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-taglibs</artifactId>
-            <version>${springsecurity.version}</version>
-        </dependency>
     </dependencies>
+
+    <build>
+        <finalName>spring-09-security</finalName>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <!-- Add Maven coordinates (GAV) for: maven-war-plugin -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
 </project>
