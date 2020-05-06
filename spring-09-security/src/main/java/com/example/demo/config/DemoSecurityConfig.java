@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -20,5 +21,16 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser(userBuilder.username("abc").password("test1").roles("EMPLOYEE"))
                 .withUser(userBuilder.username("bcd").password("test1").roles("EMPLOYEE"))
                 .withUser(userBuilder.username("efg").password("test1").roles("EMPLOYEE"));
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .anyRequest().authenticated() // anyrequest to the app must be authenticated
+                .and()
+                .formLogin()
+                .loginPage("/showMyLoginPage")  // login 시도하는 url
+                .loginProcessingUrl("/authenticateTheUser") // login processing 하는 page
+                .permitAll();
     }
 }

@@ -4,7 +4,7 @@
     <title>kkh company home page</title>
 </head>
 <body>
-<h2>kkh company home page</h2>
+<h2>kkh company home page - Yoohoo!!!</h2>
 <hr>
 Welcome to the kkh company home page!
 </body>
