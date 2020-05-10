@@ -19,14 +19,16 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.inMemoryAuthentication()
                 .withUser(userBuilder.username("abc").password("abc").roles("EMPLOYEE"))
-                .withUser(userBuilder.username("bcd").password("test1").roles("EMPLOYEE"))
-                .withUser(userBuilder.username("efg").password("test1").roles("EMPLOYEE"));
+                .withUser(userBuilder.username("bcd").password("test1").roles("MANAGER", "EMPLOYEE"))
+                .withUser(userBuilder.username("efg").password("test1").roles("ADMIN", "EMPLOYEE"));
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .anyRequest().authenticated() // anyrequest to the app must be authenticated
+                .antMatchers("/").hasRole("EMPLOYEE")
+                .antMatchers("/leaders/**").hasRole("MANAGER")
+                .antMatchers("/systems/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/showMyLoginPage")  // login 시도하는 url
