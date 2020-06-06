@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>spring-09-security</name>
+    <name>spring-09-security</name>so
 
     <properties>
         <springframework.version>5.2.3.RELEASE</springframework.version>
