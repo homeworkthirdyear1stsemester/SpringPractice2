@@ -1,20 +1,37 @@
 package com.kkh.jackson.json.demo;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
 
-// ignore all unknown properties
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class Student {
+public class FullStudent {
     private int id;
     private String firstName;
     private String lastName;
     private boolean active;
 
-    public Student() {
+    private Address address;
+    private List<String> languages;
+
+    public FullStudent() {
+    }
+
+    public List<String> getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(List<String> languages) {
+        this.languages = languages;
     }
 
     public int getId() {
         return id;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public void setId(int id) {
